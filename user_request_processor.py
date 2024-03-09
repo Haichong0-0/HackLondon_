@@ -29,17 +29,17 @@ Each piece of JSON structure stand for an event for the user's planning.
 }
 """
 
-openai.api_key = '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'
+openai.api_key = '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'
 
-response = openai.Completion.create(
+response = openai.chat.completions.create(
   model="gpt-3.5-turbo-0125",
   response_format={ "type": "json_object" },
-  prompt= PROMPT,
+
   max_tokens=500,
     messages=[
-    {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
-    {"role": "user", "content": "Who won the world series in 2020?"}
+    {"role": "system", "content": PROMPT},
+    {"role": "user", "content": "I am a software engineer living in central London. Plan me a work-life balance day"}
   ]
 )
 
-print(response.choices[0].text.strip())
+print(response)
