@@ -1,0 +1,131 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #D9D9D9;
+}
+.home-container1 {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+}
+.home-container2 {
+  top: 0px;
+  flex: 1;
+  left: 0px;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  align-self: flex-start;
+  align-items: flex-start;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  flex-direction: column;
+  background-color: #333;
+}
+.home-container3 {
+  top: 2%;
+  left: 8%;
+  width: 100%;
+  height: 286px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  padding-top: var(--dl-space-space-twounits);
+  padding-left: var(--dl-space-space-twounits);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-twounits);
+}
+.home-text {
+  color: #ffffffff;
+  font-size: 50px;
+  align-self: flex-start;
+  text-align: center;
+  border-color: var(--dl-color-gray-black);
+  border-width: 0px;
+}
+.home-des {
+  color: #ffffff;
+  width: 80%;
+}
+.home-container4 {
+  top: 20%;
+  right: 1px;
+  width: 100%;
+  height: 273px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.home-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.home-textarea {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 217px;
+  position: absolute;
+  margin-top: auto;
+  margin-left: 9%;
+  margin-right: 9%;
+  margin-bottom: auto;
+}
+.home-button {
+  left: 0px;
+  bottom: 0px;
+  height: 34px;
+  position: absolute;
+  margin-left: 9%;
+  padding-left: 1rem;
+  border-radius: var(--dl-radius-radius-radius8);
+  padding-right: 1rem;
+  background-color: #b7c9e2;
+}
+.home-container5 {
+  flex: 0 0 auto;
+  right: 0px;
+  width: 75%;
+  bottom: 0px;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.home-container6 {
+  flex: 0 0 auto;
+  width: 95%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 85%;
+  display: flex;
+  margin-top: 5%;
+  align-items: flex-start;
+  margin-left: 2.5%;
+}
+.home-button1 {
+  right: 0px;
+  width: 26%;
+  bottom: 0px;
+  height: 4%;
+  position: absolute;
+  font-size: 18px;
+  border-width: 0px;
+  margin-right: 5%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  background-color: #989898;
+  border-top-left-radius: 10px;
+}
