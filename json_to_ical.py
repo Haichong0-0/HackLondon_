@@ -9,16 +9,16 @@ def events_to_ics(events, output_file_name):
     ics_content = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Your Company//Your Product//EN\n"
 
 
-    for event in events:
+    for e in events:
         ics_content += f"""BEGIN:VEVENT
-SUMMARY:{event["summary"]}
-DTSTART:{event["start"]}
-DTEND:{event["end"]}
+SUMMARY:{e["summary"]}
+DTSTART:{e["start"]}
+DTEND:{e["end"]}
 """
-        if "location" in event:
-            ics_content += "LOCATION:"+event["location"]+"\n"
-        if "description" in event:
-            ics_content += "DESCRIPTION:"+event["description"]+"\n"
+        if "location" in e:
+            ics_content += "LOCATION:"+e["location"]+"\n"
+        if "description" in e:
+            ics_content += "DESCRIPTION:"+e["description"]+"\n"
 
         ics_content += "END:VEVENT\n"
 
@@ -49,5 +49,6 @@ events_list = [{
     "end": "20240311T140000",
     "description": "Re-energize"
 }]
+test_list=[]
 # 调用函数，将事件列表转换为 .ics 文件
 events_to_ics(events_list, "my_events.ics")

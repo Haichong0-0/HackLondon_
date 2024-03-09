@@ -1,12 +1,12 @@
 import openai
 import json
 
-
+import user_request_processor
 
 PROMPT="""
-You are a chatbot that interprets user plans submitted in natural language.
+You are a chatbot that interprets user plans submitted in natural language. Carefully analyze user's need and preferences, coming up with great activities and reasonable daily routine for the user. You may decide the location and time for each agenda, providing a detailed discription for each event.
 
-output的要求: You must always answer in JSON. 每天都要重复的 event 的key要加上 DAILY_ 的前缀; 在周末的 event 要加上 WKEND_ 的前缀; 考试/deadline等不可抗力因素前要加 FIXED_ 前缀.
+output的要求: You must always answer in JSON. 每天都要重复的 event 的key要加上 DAILY_ 的前缀; 每个工作日都要进行的 event的key要加上 WKDAY_ 前缀; 在周末的 event 要加上 WKEND_ 的前缀; 考试/deadline等不可抗力因素前要加 FIXED_ 前缀.
 当用户说“画画、陶艺或摄影”“户外探险啊，比如攀岩或者划皮艇/远足/登山”之类有多种等价活动的选项时, 一定要为用户只选择其中的一项,
 或者试图拆分成多个 events. 输出的结果一定不要出现“or”或类似需要让用户继续自己做选择的模糊字眼
 
@@ -25,9 +25,9 @@ output for example 1 (不要出现 or 或模糊的用词!):
 "0005":"gaming at home",
 "WKEND_0006":"hiking at Primrose Hill",
 "0007":"Mahjong at Chinatown Casino",
-"DAILY_0008":"lunch at",
+"DAILY_0008":"lunch",
 "DAILY_0009":"dinner",
-"DAILY_0010":"work",
+"WKDAY_0010":"work",
 "WKEND_0011":"watching musical",
 "0012":"watching film",
 "FIXED_0013":"an examination at 10 am on Wendnesday morning"
@@ -47,7 +47,7 @@ output for example 2 (不要出现 or 或模糊的用词!):
 '0003': 'joining a book club',
 'WKEND_0004': 'hiking with friends',
 'DAILY_0005': 'meditation class',
-'DAILY_0006': 'pottery session',
+'WKDAY_0006': 'pottery session',
 '0007': 'stargazing at night'
 'WKEND_0004': 'Kayaking with friends',}
 
@@ -63,12 +63,13 @@ exmaple 3:
 - 也许我还可以去参加一些社区的文化活动或节庆，了解不同的文化传统，拓宽视野。
 - 最后，我想尝试自己写小说或短篇故事，这样不仅能锻炼我的写作能力，还能让我有个机会发挥想象力，创造自己的世界。
 output for example 3:
-{'DAILY_0001': 'dance class (Latin)', 'DAILY_0002': 'pottery workshop', 'DAILY_0003': 'tea ceremony workshop', 'WKEND_0004': 'farm experience', 'WKEND_0005': 'participating in environmental activities (beach cleaning)', 'WKEND_0006': 'short trip to a nearby town', 'WKEND_0007': 'stargazing and astrophotography', '0008': 'joining an impromptu public speaking club', '0009': 'attending community cultural events', 'DAILY_0010': 'writing a novel'}
+{'WKDAY_0001': 'dance class (Latin)', 'WKDAY_0002': 'pottery workshop', '0003': 'tea ceremony workshop',
+'WKEND_0004': 'farm experience', 'WKEND_0005': 'participating in environmental activities (beach cleaning)', 'WKEND_0006': 'short trip to a nearby town', 'WKEND_0007': 'stargazing and astrophotography', '0008': 'joining an impromptu public speaking club', '0009': 'attending community cultural events', 'DAILY_0010': 'writing a novel'}
 
 """
 API_KEY='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'
-def enumerate_events(generic_plan):
-    openai.api_key = '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'
+def enumerate_events(natural_language_plan):
+    openai.api_key = user_request_processor.API_KEY
 
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo-0125",
@@ -77,7 +78,7 @@ def enumerate_events(generic_plan):
         max_tokens=500,
         messages=[
             {"role": "system", "content": PROMPT},
-            {"role": "user", "content": generic_plan}
+            {"role": "user", "content": natural_language_plan}
         ]
     )
 

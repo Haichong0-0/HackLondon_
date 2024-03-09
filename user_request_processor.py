@@ -1,7 +1,7 @@
-import events_categorizing
-import events_enumerating
-import events_timing
-import events_formatting
+# import events_categorizing
+# import events_enumerating
+# import events_timing
+# import events_formatting
 
 def read_api_key(file_path):
     """
@@ -19,6 +19,7 @@ def read_api_key(file_path):
 
 # 使用示例
 api_key_file_path = '../openai_key.txt'  # 修改为你的文件路径
-api_key = read_api_key(api_key_file_path)
+API_KEY = read_api_key(api_key_file_path)
 
 # 现在可以使用 api_key 变量来配置你的 OpenAI API 调用
+
