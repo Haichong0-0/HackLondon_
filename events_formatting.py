@@ -1,7 +1,7 @@
 import openai
 import json
-import user_request_processor
-
+import config
+# There should be no "-" or ":" in the timestamps! Remove any punctuations in the time stamps!
 PROMPT = """
 You are a chatbot that interprets plans submitted in JSON dictionary for various appointments and commitments, and
  then analyze and categorize tasks, assign priorities, and schedule timings effectively. Determining the nature of the 
@@ -13,6 +13,8 @@ You are a chatbot that interprets plans submitted in JSON dictionary for various
  ensuring that the user's schedule is organized and readily accessible.
 
 Each piece of JSON structure stand for an event for the user's planning.
+You must strictly follow the formatting conventions
+
 {
   "summary": "Team meeting",
   "location": "Office 1",
@@ -40,12 +42,13 @@ or{
 
 
 
-def format_timed_event(event):
+def format_timed_event(event: str) -> json:
+  print("正在执行 format_timed_event 函数")
 
-  openai.api_key = user_request_processor.API_KEY
+  openai.api_key = config.API_KEY
 
   response = openai.chat.completions.create(
-    model="gpt-3.5-turbo-0125",
+    model="gpt-3.5-turbo",
     response_format={ "type": "json_object" },
 
     max_tokens=500,

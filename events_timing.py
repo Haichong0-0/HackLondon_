@@ -1,6 +1,6 @@
 import openai
 import json
-import user_request_processor
+import config
 
 # 碰到有 or 的情况, 进行事件选择或拆分
 
@@ -113,12 +113,13 @@ Always ensure there are no any time conflicts for any two arbitrary events
 #             result[k]=v[:or_index]
 
 
-def timing(generic_plan):
-    openai.api_key = user_request_processor.API_KEY
+def timing(generic_plan: str) -> json:
+    print("正在执行 timing 函数")
+    openai.api_key = config.API_KEY
     
 
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo-0125",
+        model="gpt-3.5-turbo",
         response_format={"type": "json_object"},
 
         max_tokens=2000,
@@ -145,6 +146,3 @@ new_examples = """{
     "DAILY_0024": "meditation",
     "FIXED_0025": "dentist appointment at 2 pm on Thursday"
 }"""
-
-
-print(timing(new_examples))
