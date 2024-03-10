@@ -1,161 +1,252 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Your Company//Your Product//EN
+PRODID:-//TimeManagers/TimeWise//EN
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-SUMMARY:Yoga/Meditation Class
-DTSTART:20240312T180000
-DTEND:20240312T190000
-LOCATION:TBD
-DESCRIPTION:Relax and rejuvenate with yoga or meditation
+SUMMARY:Study and project time
+DTSTART:20240315T140000
+DTEND:20240315T170000
+LOCATION:University library
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Public Speaking Club
-DTSTART:20240313T200000
-DTEND:20240313T210000
-LOCATION:TBD
-DESCRIPTION:Join an impromptu public speaking club to improve communication skills and meet new friends
+SUMMARY:Study and project time
+DTSTART:20240311T140000
+DTEND:20240311T170000
+LOCATION:University library
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Late Night: Work on personal coding projects
-DTSTART:20240311T230000
-DTEND:20240312T010000
-DESCRIPTION:Enhance skills and explore new technologies
+SUMMARY:Computer Science Lectures
+DTSTART:20240316T090000
+DTEND:20240316T130000
+LOCATION:University Campus
+DESCRIPTION:Attend computer science lectures from 9:00 am to 1:00 pm
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Yoga/Meditation Class
-DTSTART:20240315T180000
-DTEND:20240315T190000
-LOCATION:TBD
-DESCRIPTION:Relax and destress
+SUMMARY:Leisure Reading/Personal Projects
+DTSTART:20240310T210000
+DTEND:20240310T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Public Speaking Club
-DTSTART:20240315T200000
-DTEND:20240315T210000
-LOCATION:TBD
-DESCRIPTION:Join an impromptu public speaking club to improve communication skills and meet new friends
+SUMMARY:Wind-down session
+DTSTART:20240315T220000
+DTEND:20240315T230000
+DESCRIPTION:Light TV show or music listening session before sleep
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind-down Session
+DTSTART:20240315T220000
+DTEND:20240315T230000
+DESCRIPTION:Light TV show or music listening session before sleep
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind-down Session
+DTSTART:20240311T220000
+DTEND:20240311T230000
+DESCRIPTION:Light TV show or music listening session before sleep
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Preparation for the upcoming week
+DTSTART:20240311T130000
+DTEND:20240311T150000
+LOCATION:Home
+DESCRIPTION:Plan tasks, set goals, and organize workspace for the week ahead or choose to relax and recharge for the upcoming challenges.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lunch break
+DTSTART:20240316T130000
+DTEND:20240316T140000
+LOCATION:University cafeteria
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Dinner
+DTSTART:20240312T193000
+DTEND:20240312T200000
+LOCATION:Local restaurant in Covent Garden
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Dinner
+DTSTART:20240311T193000
+DTEND:20240311T200000
+LOCATION:Covent Garden
+DESCRIPTION:Dinner at a local restaurant
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Coding practice session
+DTSTART:20240311T173000
+DTEND:20240311T190000
+LOCATION:University computer lab
+DESCRIPTION:From 5:30 pm to 7:00 pm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Science Lectures
+DTSTART:20240313T090000
+DTEND:20240313T130000
+LOCATION:University Campus
+DESCRIPTION:Attend computer science lectures from 9:00 am to 1:00 pm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Science Club Meeting
+DTSTART:20240312T193000
+DTEND:20240312T210000
+LOCATION:University
+DESCRIPTION:Participation in the university's computer science club meetings on Tuesdays.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Leisure Reading or Personal Projects
+DTSTART:20240314T210000
+DTEND:20240314T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Exploratory walk and lunch
+DTSTART:20240311T133000
+DTEND:20240311T150000
+LOCATION:Camden Market
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Dinner and socializing
+DTSTART:20240311T190000
+DTEND:20240311T230000
+LOCATION:TBD - friend's house or local eatery
+DESCRIPTION:Enjoy a relaxing evening with friends.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Dinner
+DTSTART:20240311T193000
+DTEND:20240311T200000
+LOCATION:Local restaurant in Covent Garden
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind-down session
+DTSTART:20240311T220000
+DTEND:20240311T230000
+DESCRIPTION:Light TV show or music listening session before sleep
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Photography workshop
+DTSTART:20240311T100000
+DTEND:20240311T130000
+LOCATION:Victoria and Albert Museum
+DESCRIPTION:Attend a photography workshop from 10:00 am to 1:00 pm
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Breakfast
+DTSTART:20240311T080000
+DTEND:20240311T083000
+LOCATION:Local cafe near campus
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lunch break
+DTSTART:20240313T130000
+DTEND:20240313T140000
+LOCATION:University cafeteria
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Leisure reading or personal projects
+DTSTART:20240310T210000
+DTEND:20240310T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Morning meditation session
+DTSTART:20240314T070000
+DTEND:20240314T073000
+LOCATION:Kensington Gardens
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Coding practice session
+DTSTART:20240314T173000
+DTEND:20240314T190000
+LOCATION:University computer lab
+DESCRIPTION:Practice coding skills
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Morning meditation session
+DTSTART:20240311T070000
+DTEND:20240311T073000
+LOCATION:Kensington Gardens
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Computer Science Lectures
 DTSTART:20240314T090000
-DTEND:20240314T110000
-LOCATION:University
-DESCRIPTION:Attend computer science lectures and practical sessions
+DTEND:20240314T130000
+LOCATION:University Campus
+DESCRIPTION:Attend computer science lectures from 9:00 am to 1:00 pm
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Yoga/Meditation Class
-DTSTART:20240313T180000
+SUMMARY:Group study session
+DTSTART:20240310T160000
+DTEND:20240310T180000
+LOCATION:Friend's house
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Lunch break
+DTSTART:20240314T130000
+DTEND:20240314T140000
+LOCATION:University cafeteria
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Leisure Reading/Personal Projects
+DTSTART:20240311T210000
+DTEND:20240311T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Breakfast
+DTSTART:20240315T080000
+DTEND:20240315T083000
+LOCATION:Local cafe near campus
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Coding practice session
+DTSTART:20240313T173000
 DTEND:20240313T190000
-LOCATION:TBD
-DESCRIPTION:Relax and rejuvenate
+LOCATION:University computer lab
+DESCRIPTION:From 5:30 pm to 7:00 pm
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Late Night: Work on personal coding projects
-DTSTART:20240310T230000
-DTEND:20240311T010000
-DESCRIPTION:Enhance skills and explore new technologies
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Work on coding assignments and projects
+SUMMARY:Study and project time
 DTSTART:20240314T140000
-DTEND:20240314T160000
+DTEND:20240314T170000
 LOCATION:University library
-DESCRIPTION:Afternoon session
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Late Night: Work on personal coding projects
-DTSTART:20240316T230000
-DTEND:20240317T010000
-DESCRIPTION:Enhance skills and explore new technologies
+SUMMARY:Sunday morning run
+DTSTART:20240311T080000
+DTEND:20240311T090000
+LOCATION:Hyde Park
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Computer Science Lectures and Practical Sessions
-DTSTART:20240312T090000
-DTEND:20240312T110000
-LOCATION:University
-DESCRIPTION:Attend morning lectures and practical sessions
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Work on coding assignments and projects
-DTSTART:20240312T140000
-DTEND:20240312T160000
-LOCATION:University library
-DESCRIPTION:Afternoon session at the university library
+SUMMARY:Leisure Reading or Personal Projects
+DTSTART:20240311T210000
+DTEND:20240311T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Computer Science Lectures
 DTSTART:20240311T090000
-DTEND:20240311T110000
-LOCATION:University
-DESCRIPTION:Attend computer science lectures and practical sessions
+DTEND:20240311T130000
+LOCATION:University Campus
+DESCRIPTION:Attend computer science lectures from 9:00 am to 1:00 pm
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Computer Science Lectures
-DTSTART:20240315T090000
-DTEND:20240315T110000
-LOCATION:University
-DESCRIPTION:Attend lectures and practical sessions
+SUMMARY:Leisure Reading/Personal Projects
+DTSTART:20240314T210000
+DTEND:20240314T220000
+DESCRIPTION:Time reserved for leisure reading or working on personal projects.
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Yoga/Meditation Class
-DTSTART:20240311T180000
-DTEND:20240311T190000
-LOCATION:TBD
-DESCRIPTION:Relax and rejuvenate with yoga or meditation
+SUMMARY:Art and Culture Session
+DTSTART:20240311T110000
+DTEND:20240311T140000
+LOCATION:British Museum/National Gallery
+DESCRIPTION:Visit the British Museum or National Gallery for an art and culture session.
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Late Night: Work on personal coding projects
-DTSTART:20240313T230000
-DTEND:20240314T010000
-DESCRIPTION:Enhance skills and explore new technologies
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Work on coding assignments and projects
-DTSTART:20240315T140000
-DTEND:20240315T160000
-LOCATION:University library
-DESCRIPTION:Afternoon session
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Late Night: Work on personal coding projects
-DTSTART:20240312T230000
-DTEND:20240313T010000
-DESCRIPTION:Enhance skills and explore new technologies
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Work on coding assignments and projects
-DTSTART:20240311T140000
-DTEND:20240311T160000
-LOCATION:University library
-DESCRIPTION:Afternoon session at the university library
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Yoga/Meditation Class
-DTSTART:20240314T180000
-DTEND:20240314T190000
-LOCATION:TBD
-DESCRIPTION:Relax and rejuvenate with a yoga or meditation class
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Public Speaking Club
-DTSTART:20240311T200000
-DTEND:20240311T210000
-LOCATION:TBD
-DESCRIPTION:Join an impromptu public speaking club to improve communication skills and meet new friends
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Public Speaking Club
-DTSTART:20240312T200000
-DTEND:20240312T210000
-LOCATION:TBD
-DESCRIPTION:Join an impromptu public speaking club to improve communication skills and meet new friends
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Public Speaking Club
-DTSTART:20240314T200000
-DTEND:20240314T210000
-LOCATION:TBD
-DESCRIPTION:Join an impromptu public speaking club to improve communication skills and meet new friends
+SUMMARY:Dinner
+DTSTART:20240315T193000
+DTEND:20240315T200000
+LOCATION:Local restaurant in Covent Garden
 END:VEVENT
 END:VCALENDAR

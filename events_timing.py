@@ -2,18 +2,6 @@ import openai
 import json
 import config
 
-# 碰到有 or 的情况, 进行事件选择或拆分
-
-# PROMPT="""
-# You are a chatbot that interprets plans submitted in the JSON dictionary for various appointments and commitments, analyzes and categorizes tasks, assigns priorities, and schedules timings effectively. Determining the nature of the
-# event, check if the input contains “or”或类似需要让用户继续自己做选择的模糊字眼. If so, 一定要为用户只选择其中的一项, 不要让用户陷入选择困难症!
-#
-# JSON keys with the prefix "DAILY_" stands for it being planned daily
-# JSON keys with the prefix "WKEND_" stands for it being planned on the weekend
-# JSON keys with the prefix "FIXED_" stands for it should be exactly added to the calendar with the exact specified date and time slot
-# If there is no any prefixs above, then schedule the event only once! only once! only once! for example:{"0007": "Mahjong at Chinatown Casino or Elephant & Castle"}, the output should look like this: {"Friday 8pm-10pm": "Mahjong at Chinatown Casino"}
-# No any two events should be at the same time!“”“
-
 GPT3="gpt-3.5-turbo"
 GPT4="gpt-4-0125-preview"
 
@@ -130,17 +118,17 @@ Always ensure there are no any time conflicts for any two arbitrary events
 # def remove_dilemma_last_resort(result):
 #     for k,v in result.items():
 #         or_index = v.find(" or")
-#         # 如果找到了" or"，就返回其前面的内容；否则，返回整个字符串
+#
 #         if or_index != -1:
 #             result[k]=v[:or_index]
 
 
 def timing(generic_plan: str) -> json:
-    print("正在执行 timing 函数")
+    print("executing `timing` function")
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model=GPT3,
+        model=GPT4,
         response_format={"type": "json_object"},
         temperature=0.0,
         max_tokens=2000,

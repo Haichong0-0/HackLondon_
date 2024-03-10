@@ -1,12 +1,11 @@
 import openai
-import json
 import config
 import datetime
 
 GPT3="gpt-3.5-turbo"
 GPT4="gpt-4-0125-preview"
 
-# There should be no "-" or ":" in the timestamps! Remove any punctuations in the time stamps!
+
 PROMPT = f"""
 You are a chatbot that interprets plans submitted in JSON dictionary for various appointments and commitments, and
  then analyze and categorize tasks, assign priorities, and schedule timings effectively. Determining the nature of the 
@@ -52,12 +51,12 @@ or{
 
 
 def format_timed_event(event: str) -> str:
-    print("正在执行 format_timed_event 函数")
+    print("executing `format_timed_event` function")
 
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model=GPT3,
+        model=GPT4,
         response_format={"type": "json_object"},
         temperature=0.0,
         max_tokens=500,
@@ -107,5 +106,3 @@ test_events = {'Monday 8:30-9am': 'reading in the British Library',
                'Monday 8:00-8:45': 'meditation', 'Tuesday 8:00-8:45': 'meditation', 'Wednesday 8:00-8:45': 'meditation',
                'Thursday 8:00-8:45': 'meditation', 'Friday 8:00-8:45': 'meditation',
                'Saturday 8:00 -8:45': 'meditation', 'Sunday 8:00-8:45': 'meditation'}
-# for i in test_events.items():
-#   print(format_timed_event(str(i)))
