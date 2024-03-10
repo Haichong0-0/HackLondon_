@@ -26,9 +26,9 @@ In situations where the user presents multiple equivalent activities, like "pain
 A very very bad output is below. Answers like this are forbidden!!! the reason is because yoou used "or", which will trapped the user into dilemma where they still need to make a choice:
 {'DAILY_0001': 'dance class (Latin or street dance)', 'DAILY_0002': 'handicrafts workshop (leather crafting or pottery)', 'DAILY_0003': 'tea ceremony or coffee brewing class','WKEND_0004': 'participating in environmental activities (beach cleaning or city greening project)', 'DAILY_0005': 'writing a novel or short stories'}
 
-example 1: 有这几件事情: 打游戏、钓鱼、打麻将、远足、约会、吃饭、工作、晨跑、音乐剧、电影 (但我周三早上10点有考试)
+example 1: There are these things: playing games, fishing, playing mahjong, hiking, dating, eating, working, morning jogging, musicals, movies (but I have an exam at 10 a.m. on Wednesday)
 
-output for example 1 (不要出现 or 或模糊的用词!): 
+output for example 1 (No "or" / ambiguous words!): 
 {
 "DAILY_0001":"jogging in the morning at Hyde Park",
 "DAILY_0002":"breakfast at Pret",
@@ -46,14 +46,14 @@ output for example 1 (不要出现 or 或模糊的用词!):
 }
 
 example 2:
-- 我想试试去烹饪课。或者看喜剧或话剧怎么样？比起电影，现场的感觉更真实，笑声、掌声，气氛很棒的。
-- 加入个书俱乐部呢？除了读书，还能遇到一些有意思的人，交流交流思想什么的。
-- 我还想户外探险，比如攀岩或者划皮艇/远足/登山。和朋友一起，既刺激又好玩。
-- 瑜伽或冥想课程也挺不错，对身心都好，换个方式放松一下。
-- 画画、陶艺或摄影，搞搞艺术创作。这个特别能放松人，而且说不定你还有隐藏的艺术天分呢。
-- 晚上找个时间去观星吧，选个视野开阔、光污染少的地方，看看宇宙的美，感觉特别棒。
+- I want to try taking a cooking class. Or how about watching a comedy or drama? Compared to the movie, the scene feels more real, the laughter, applause, and the atmosphere are great.
+- How about joining a book club? In addition to reading, you can also meet some interesting people and exchange ideas.
+- I also want outdoor adventures like rock climbing or kayaking/hiking/climbing. With friends, it's exciting and fun.
+- Yoga or meditation classes are also good, they are good for the body and mind, and are a different way to relax.
+- Get creative with art by painting, pottery or photography. This is particularly relaxing, and maybe you have a hidden artistic talent.
+- Find time to go stargazing at night. Choose a place with a wide view and less light pollution. It feels great to see the beauty of the universe.
 
-output for example 2 (不要出现 or 或模糊的用词!):
+output for example 2 (No "or" / ambiguous words!):
 {'WKEND_0001': 'cooking class', 
 '0002': 'watching drama',
 '0003': 'joining a book club',
@@ -64,17 +64,17 @@ output for example 2 (不要出现 or 或模糊的用词!):
 'WKEND_0004': 'Kayaking with friends',}
 
 exmaple 3:
-- 我觉得去参加一个舞蹈课程也挺好的。学学拉丁舞或街舞，动感的音乐，跟着节奏舞动，感觉自己也年轻活力满满的。
-- 或者我可以试试手工艺品制作课，比如学做皮革手工艺或是陶瓷，动手能力强了，做出来的东西还能送人，多有意义。
-- 我还挺想学习一下茶艺或咖啡冲泡技术，这样不仅能享受过程，还能提升生活品质，邀请朋友来家里，展示一下自己的手艺。
-- 体验一天的农场生活也不错，去郊外的农场体验一下收获果蔬的乐趣，接触大自然，感受一下农耕文化。
-- 我想去参加一些环保活动，比如海滩清洁或是城市绿化项目。这样既能出力做好事，又能提高自己的环保意识。
-- 做个小旅行也是个不错的选择，选择一个周末，去附近的小镇探险，体验不一样的文化和风景。
-- 我还打算试试看天文摄影，晚上带着相机捕捉星辰大海的美景，这应该会是一个很酷的经历。
-- 我也想试试参加一个即兴演讲俱乐部，提升一下自己的公众演讲能力，同时也能认识一些志同道合的朋友。
-- 也许我还可以去参加一些社区的文化活动或节庆，了解不同的文化传统，拓宽视野。
-- 最后，我想尝试自己写小说或短篇故事，这样不仅能锻炼我的写作能力，还能让我有个机会发挥想象力，创造自己的世界。
-output for example 3:
+- I think it would be good to take a dance class. Learn Latin dance or street dance, dance to the dynamic music, and feel young and energetic.
+- Or I can try handicraft making classes, such as learning to make leather crafts or ceramics. If you have strong hands-on skills, the things you make can be given away, which is very meaningful.
+- I really want to learn tea or coffee brewing techniques, so that I can not only enjoy the process, but also improve the quality of life and invite friends to my home to show off my skills.
+- It’s also good to experience farm life for a day. Go to a farm in the suburbs to experience the fun of harvesting fruits and vegetables, get in touch with nature, and feel the farming culture.
+- I want to take part in some environmental activities, such as beach cleanups or urban greening projects. In this way, you can not only contribute to doing good things, but also improve your environmental awareness.
+- Taking a small trip is also a good choice. Choose a weekend to explore a nearby town and experience different cultures and scenery.
+- I also plan to try astrophotography, taking a camera with me at night to capture the beauty of the stars and the sea. This should be a cool experience.
+- I also want to try joining an impromptu speaking club to improve my public speaking skills and to meet some like-minded friends.
+- Maybe I can also participate in some community cultural activities or festivals to learn about different cultural traditions and broaden my horizons.
+- Finally, I would like to try writing a novel or short story myself, which would not only exercise my writing skills, but also give me a chance to use my imagination and create my own world.
+output for example 3 (No "or" / ambiguous words!):
 {'WKDAY_0001': 'dance class (Latin)', 'WKDAY_0002': 'pottery workshop', '0003': 'tea ceremony workshop',
 'WKEND_0004': 'farm experience', 'WKEND_0005': 'participating in environmental activities (beach cleaning)', 'WKEND_0006': 'short trip to a nearby town', 'WKEND_0007': 'stargazing and astrophotography', '0008': 'joining an impromptu public speaking club', '0009': 'attending community cultural events', 'DAILY_0010': 'writing a novel'}
 
@@ -101,8 +101,7 @@ def enumerate_events(natural_language_plan: str) -> str:
     return events
 
 
-# for k in 测试结果:
-#     print()
+
 def remove_dilemma(result):
     for k, v in result.items():
         or_index = v.find(" or")
