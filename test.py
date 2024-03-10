@@ -1,14 +1,22 @@
 # test.py
 
 import sys
-import json
-
-# Read JSON input from PHP
-input_data = json.loads(sys.stdin.read())
-
-# Process the input data (for demonstration, just square each number)
-output_data = input_data
 
 
-# Output the result as JSON
-print(json.dumps(output_data))
+
+def write1(input):
+    # Open or create a file named 'test.txt' in write mode
+    with open("test.txt", 'a') as file:
+            file.write(input + '\n')
+        
+
+
+if __name__ == "__main__":
+
+    print("Hello world")
+    write1("run")
+
+    data_to_save = sys.argv[1]
+    write1(data_to_save)
+
+

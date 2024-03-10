@@ -53,6 +53,29 @@
     />
   </head>
   <body>
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // Retrieve the message from the form
+      $message = $_POST["user-input"];
+    
+
+    
+      $python_script_path = 'test.py';
+
+      //$command = escapeshellcmd("python " . $python_script_path . " " . escapeshellarg($message));
+      $command = escapeshellcmd("py " . $python_script_path);
+
+    
+      $output = shell_exec($command);
+
+
+    
+
+      // Process the data (you can perform any desired operations here)
+    
+      // For demonstration purposes, let's simply display the message
+      }   
+    ?>
     <link rel="stylesheet" href="./style.css" />
     <div>
       <link href="./index.css" rel="stylesheet" />
@@ -68,15 +91,15 @@
               <span class="home-des">This project is about</span>
             </div>
             <div class="home-container4">
-              <form class="home-form"  method= "post"><!--action="getinput.php"-->
-                <input textarea
+              <form action = "" method="post" id="user-form">          
+              <input textarea
                   type="text"
                   placeholder="What Are You Going To Do Next Week?"
                   class="home-textarea textarea"
                   name = "user-input"
                   id= "user-input"
                 ></textarea>
-                <button type="submit" class="home-button button" id="fetch">UPDATE</button>
+                <button type="submit" class="home-button button" id="fetch" onclick="submitForm()">UPDATE</button>
               </form>
               <button type="button" class="home-button1 button">
                 IMPORT TO CALENDER
@@ -93,10 +116,21 @@
     </div>
 
     <script>
-      function process(){
-        var input = document.getElementById("user-input").value;
+      function submitForm() {
+        var formData = new FormData(document.getElementById("user-"));
 
-      }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "getinput.php", true);
+
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Update the result div with the response from the PHP file
+            document.getElementById("result").innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.send(formData);
+}
     </script>
   </body>
 </html>
