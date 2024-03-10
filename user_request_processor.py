@@ -3,7 +3,6 @@ import events_enumerating
 import events_timing
 import events_formatting
 import json_to_ical
-import datetime
 
 User_input="""
 - 我挺想参加个摄影工作坊的，学学怎么拍出大片的感觉。或者我也可以试试手工艺课，比如学做手链或者小饰品，感觉挺有趣的。
@@ -17,7 +16,6 @@ User_input="""
 - 我也想尝试一下自己制作一部小短片，记录一下日常生活或者旅行的点点滴滴。
 - 周末的时候，我打算去郊外野餐，带上一些美食，享受一下大自然的宁静。
 """
-User_input+="安排的时间范围是"+datetime.datetime.now().strftime("%Y-%m-%d")+"以及今后一周"
 
 generic_plan=events_enumerating.enumerate_events(User_input)
 specific_events=events_timing.timing(str(generic_plan))

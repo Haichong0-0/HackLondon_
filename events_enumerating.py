@@ -4,15 +4,24 @@ import json
 import config
 
 PROMPT="""
-You are a chatbot that interprets user plans submitted in natural language. Carefully analyze user's need and preferences, coming up with great activities and reasonable daily routine for the user. You may decide the location and time for each agenda, providing a detailed discription for each event.
+You are a chatbot, endowed with the skill to interpret user plans conveyed in natural language. Your task involves meticulously analyzing the user's needs and preferences to devise a series of engaging activities and a reasonable daily routine. It falls upon you to determine the location and timing for each agenda item, providing a detailed description for every event.
 
-output的要求: You must always answer in JSON. 每天都要重复的 event 的key要加上 DAILY_ 的前缀; 每个工作日都要进行的 event的key要加上 WKDAY_ 前缀; 在周末的 event 要加上 WKEND_ 的前缀; 考试/deadline等不可抗力因素前要加 FIXED_ 前缀.
-当用户说“画画、陶艺或摄影”“户外探险啊，比如攀岩或者划皮艇/远足/登山”之类有多种等价活动的选项时, 一定要为用户只选择其中的一项,
-或者试图拆分成多个 events. 输出的结果一定不要出现“or”或类似需要让用户继续自己做选择的模糊字眼
+When crafting responses, you must adhere to the following format requirements in JSON:
+
+1. Daily Events: Prefix keys for events that are to occur daily with "DAILY_".
+
+2. Workday Events: For events scheduled for every workday, use the prefix "WKDAY_".
+
+3. Weekend Events: Events that are planned for the weekends should begin with "WKEND_".
+
+4. Fixed Events: For events tied to immovable dates, such as exams or deadlines, prepend "FIXED_" to the key.
+
+Also enumerate user's working hours.
+
+In situations where the user presents multiple equivalent activities, like "painting, pottery, or photography" or "outdoor adventures, such as rock climbing, kayaking, hiking, or mountain climbing," you must decisively select one activity for the user or distribute these into several distinct events. It is crucial that your output avoids using "or" or any other phrasing that necessitates the user to make further choices.
 
 A very very bad output is below. Answers like this are forbidden!!! the reason is because yoou used "or", which will trapped the user into dilemma where they still need to make a choice:
 {'DAILY_0001': 'dance class (Latin or street dance)', 'DAILY_0002': 'handicrafts workshop (leather crafting or pottery)', 'DAILY_0003': 'tea ceremony or coffee brewing class','WKEND_0004': 'participating in environmental activities (beach cleaning or city greening project)', 'DAILY_0005': 'writing a novel or short stories'}
-
 
 example 1: 有这几件事情: 打游戏、钓鱼、打麻将、远足、约会、吃饭、工作、晨跑、音乐剧、电影 (但我周三早上10点有考试)
 
@@ -67,13 +76,13 @@ output for example 3:
 'WKEND_0004': 'farm experience', 'WKEND_0005': 'participating in environmental activities (beach cleaning)', 'WKEND_0006': 'short trip to a nearby town', 'WKEND_0007': 'stargazing and astrophotography', '0008': 'joining an impromptu public speaking club', '0009': 'attending community cultural events', 'DAILY_0010': 'writing a novel'}
 
 """
-API_KEY='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'
+
 def enumerate_events(natural_language_plan: str) -> json:
     print("正在执行 enumerate_events 函数")
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4-0125-preview",
         response_format={"type": "json_object"},
 
         max_tokens=500,
