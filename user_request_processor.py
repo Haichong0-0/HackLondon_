@@ -22,15 +22,17 @@ Plan me a wonderful work-life balance week as a computer science university stud
 
 def processing_user_request(user_input: str):
     generic_plan = events_enumerating.enumerate_events(user_input)
-    specific_events = events_timing.timing(str(generic_plan))
+    specific_events = events_timing.timing(generic_plan)
 
     specific_events_list = [f"{key}: {value}" for key, value in specific_events.items()]
 
-    formatted_events_list = []
+    formatted_events_set = set() # Using set instead of list to combat Generative AI delusion - Generating repeatitive same events
     for e in specific_events_list:
-        formatted_events_list.append(events_formatting.format_timed_event(e))
+        a=events_formatting.format_timed_event(e)
+        formatted_events_set.add(a)
+        print(type(a))
 
-    json_to_ical.events_to_ics(formatted_events_list, "my_events.ics")
+    json_to_ical.events_to_ics(formatted_events_set, "my_events.ics")
 
 
 processing_user_request(user_input_test)

@@ -1,10 +1,15 @@
+import json
+
+
 def scrap_punctuations(timestamp: str) -> str:
+    # Purpose: combat Generative AI delusion
     cleaned_string = timestamp.replace("-", "").replace(":", "").replace(" ", "")
     return cleaned_string
 
 
-def events_to_ics(events: list, output_file_name: str):
+def events_to_ics(events, output_file_name: str):
     print("正在执行 events_to_ics 函数")
+
     """
     将包含多个事件的列表转换为单一的含有多个事件的 iCalendar (.ics) 文件。
 
@@ -12,10 +17,13 @@ def events_to_ics(events: list, output_file_name: str):
     - events: 包含事件字典的列表。
     - output_file_name: 输出的 .ics 文件名。
     """
+
     ics_content = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Your Company//Your Product//EN\nCALSCALE:GREGORIAN\n"
     i = 0
 
-    for e in events:
+    for event in events:
+        print(type(event))
+        e=json.loads(event)
         start_timestamp = scrap_punctuations(e["start"])
         end_timestamp = scrap_punctuations(e["end"])
         i += 1

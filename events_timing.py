@@ -14,6 +14,9 @@ import config
 # If there is no any prefixs above, then schedule the event only once! only once! only once! for example:{"0007": "Mahjong at Chinatown Casino or Elephant & Castle"}, the output should look like this: {"Friday 8pm-10pm": "Mahjong at Chinatown Casino"}
 # No any two events should be at the same time!“”“
 
+GPT3="gpt-3.5-turbo"
+GPT4="gpt-4-0125-preview"
+
 PROMPT = """
 
 You are a chatbot tasked with the advanced management of plans and commitments. Your capabilities are designed to interpret schedules submitted through a JSON dictionary, meticulously analyze and categorize tasks, assign them priorities, and schedule their timings with unparalleled efficiency. Here's what you are expected to do:
@@ -137,9 +140,9 @@ def timing(generic_plan: str) -> json:
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model="gpt-4-0125-preview",
+        model=GPT3,
         response_format={"type": "json_object"},
-
+        temperature=0.0,
         max_tokens=2000,
         messages=[
             {"role": "system", "content": PROMPT},

@@ -3,6 +3,9 @@ import json
 
 import config
 
+GPT3="gpt-3.5-turbo"
+GPT4="gpt-4-0125-preview"
+
 PROMPT = """
 You are a chatbot, endowed with the skill to interpret user plans conveyed in natural language. Your task involves meticulously analyzing the user's needs and preferences to devise a series of engaging activities and a reasonable daily routine. It falls upon you to determine the location and timing for each agenda item, providing a detailed description for every event.
 
@@ -78,14 +81,14 @@ output for example 3:
 """
 
 
-def enumerate_events(natural_language_plan: str) -> json:
+def enumerate_events(natural_language_plan: str) -> str:
     print("正在执行 enumerate_events 函数")
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model="gpt-4-0125-preview",
+        model=GPT3,
         response_format={"type": "json_object"},
-
+        temperature=0.9,
         max_tokens=500,
         messages=[
             {"role": "system", "content": PROMPT},
@@ -94,9 +97,8 @@ def enumerate_events(natural_language_plan: str) -> json:
     )
 
     events = response.choices[0].message.content
-    events_json = json.loads(events)
 
-    return events_json
+    return events
 
 
 # for k in 测试结果:
