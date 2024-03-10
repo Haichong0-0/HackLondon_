@@ -117,7 +117,7 @@ $(document).ready(function () {
   });
   $("#fetch").click(function () {
     const corsAnywhereOn = $("#cors-enabled").is(":checked");
-    const url = $("#eventsource").val();
+    const url = "http://localhost/HackLondon_/my_events.ics";
     fetch_ics_feed(url, corsAnywhereOn, true);
   });
 });

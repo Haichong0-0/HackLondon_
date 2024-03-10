@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset='utf-8' />
-    <title>Online ICS feed viewer</title>
+    
     <link href='./ics-viewer/fullcalendar.min.css' rel='stylesheet' />
     <link href='./ics-viewer/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <script src='./ics-viewer/lib/moment.min.js'></script>
@@ -10,7 +10,7 @@
     <script src='./ics-viewer/fullcalendar.min.js'></script>
     <script src='./ics-viewer/ical.min.js'></script>
     <script src='./ics-viewer/urlhash.js'></script>
-    <script src='./ics-viewer/script.js'></script>
+    <script src='./script.js'></script>
     <title>Main page</title>
     <meta property="og:title" content="main page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,7 +68,7 @@
               <span class="home-des">This project is about</span>
             </div>
             <div class="home-container4">
-              <form class="home-form" action="getinput.php" method= "post">
+              <form class="home-form"  method= "post"><!--action="getinput.php"-->
                 <input textarea
                   type="text"
                   placeholder="What Are You Going To Do Next Week?"
@@ -76,7 +76,7 @@
                   name = "user-input"
                   id= "user-input"
                 ></textarea>
-                <button type="submit" class="home-button button">UPDATE</button>
+                <button type="submit" class="home-button button" id="fetch">UPDATE</button>
               </form>
               <button type="button" class="home-button1 button">
                 IMPORT TO CALENDER
