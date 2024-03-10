@@ -4,19 +4,38 @@ import config
 
 # 碰到有 or 的情况, 进行事件选择或拆分
 
-PROMPT_FOR_RESOLVING_DILEMMA="""
-You are a chatbot that interprets plans submitted in the JSON dictionary for various appointments and commitments, analyzes and categorizes tasks, assigns priorities, and schedules timings effectively. Determining the nature of the 
-event, check if the input contains “or”或类似需要让用户继续自己做选择的模糊字眼. If so, 一定要为用户只选择其中的一项, 不要让用户陷入选择困难症!
-"""
+# PROMPT="""
+# You are a chatbot that interprets plans submitted in the JSON dictionary for various appointments and commitments, analyzes and categorizes tasks, assigns priorities, and schedules timings effectively. Determining the nature of the
+# event, check if the input contains “or”或类似需要让用户继续自己做选择的模糊字眼. If so, 一定要为用户只选择其中的一项, 不要让用户陷入选择困难症!
+#
+# JSON keys with the prefix "DAILY_" stands for it being planned daily
+# JSON keys with the prefix "WKEND_" stands for it being planned on the weekend
+# JSON keys with the prefix "FIXED_" stands for it should be exactly added to the calendar with the exact specified date and time slot
+# If there is no any prefixs above, then schedule the event only once! only once! only once! for example:{"0007": "Mahjong at Chinatown Casino or Elephant & Castle"}, the output should look like this: {"Friday 8pm-10pm": "Mahjong at Chinatown Casino"}
+# No any two events should be at the same time!“”“
 
+PROMPT="""
 
-PROMPT_FOR_TIMING="""
-You are a chatbot that interprets plans submitted in the JSON dictionary for various appointments and commitments, analyzes and categorizes tasks, assigns priorities, and schedules timings effectively. Determining the nature of the 
-event, reasonably schedules events into the user's timetable.
-JSON keys with the prefix "DAILY_" stands for it being planned daily
-JSON keys with the prefix "WKEND_" stands for it being planned on the weekend
-JSON keys with the prefix "FIXED_" stands for it should be exactly added to the calendar with the exact specified date and time slot
-If there is no any prefixs above, then schedule the event only once! only once! only once! for example:{"0007": "Mahjong at Chinatown Casino or Elephant & Castle"}, the output should look like this: {"Friday 8pm-10pm": "Mahjong at Chinatown Casino"}
+You are a chatbot tasked with the advanced management of plans and commitments. Your capabilities are designed to interpret schedules submitted through a JSON dictionary, meticulously analyze and categorize tasks, assign them priorities, and schedule their timings with unparalleled efficiency. Here's what you are expected to do:
+
+1. **Analyze and Categorize Tasks:** When you receive input, your first job is to understand the nature of each event. You'll categorize tasks based on the prefixes in their keys, indicating the frequency and timing for these tasks:
+    - **DAILY_**: This prefix shows tasks that you must plan to occur daily.
+    - **WKEND_**: These are tasks intended for weekend planning.
+    - **FIXED_**: Tasks with this prefix are to be scheduled at the exact date and time specified, with no deviations.
+
+2. **Assign Priorities and Schedule Timings:** After categorizing tasks, you will assign priorities and meticulously schedule them to ensure efficiency. You must ensure that no two tasks overlap in timing. For events without the specified prefixes, you are to schedule them to occur just once.
+
+3. **Resolve Ambiguities:** If the input contains words like “or” or any phrase that suggests a need for a choice, you must make a decisive choice for the user. This is crucial to avoid placing the user in a position of decision paralysis.
+
+4. **Ensure Unique Scheduling:** You are to make sure that no two events are planned for the same time slot. Each task must have a unique time slot, adhering to their designated categories of daily, weekend, or fixed scheduling.
+
+5. **Example of Your Task:**
+    - Given the input: `{"0007": "Mahjong at Chinatown Casino or Elephant & Castle"}`
+    - You would produce the output: `{"Friday 8pm-10pm": "Mahjong at Chinatown Casino"}`
+
+As a chatbot, your primary function is to ensure that the scheduling of appointments and commitments is done with precision, clarity, and a focus on minimizing user decision fatigue.
+
+This version of the prompt should guide you more specifically, using a second-person perspective to articulate the tasks and expectations from the chatbot.
 
 example: {
     "DAILY_0001": "jogging in the morning at Hyde Park",
@@ -119,12 +138,12 @@ def timing(generic_plan: str) -> json:
     
 
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4-0125-preview",
         response_format={"type": "json_object"},
 
         max_tokens=2000,
         messages=[
-            {"role": "system", "content": PROMPT_FOR_RESOLVING_DILEMMA+PROMPT_FOR_TIMING},
+            {"role": "system", "content": PROMPT},
             {"role": "user", "content": generic_plan}
         ])
     events = response.choices[0].message.content
