@@ -3,7 +3,7 @@ import json
 
 import config
 
-PROMPT="""
+PROMPT = """
 You are a chatbot, endowed with the skill to interpret user plans conveyed in natural language. Your task involves meticulously analyzing the user's needs and preferences to devise a series of engaging activities and a reasonable daily routine. It falls upon you to determine the location and timing for each agenda item, providing a detailed description for every event.
 
 When crafting responses, you must adhere to the following format requirements in JSON:
@@ -77,6 +77,7 @@ output for example 3:
 
 """
 
+
 def enumerate_events(natural_language_plan: str) -> json:
     print("正在执行 enumerate_events 函数")
     openai.api_key = config.API_KEY
@@ -97,14 +98,12 @@ def enumerate_events(natural_language_plan: str) -> json:
 
     return events_json
 
+
 # for k in 测试结果:
 #     print()
 def remove_dilemma(result):
-    for k,v in result.items():
+    for k, v in result.items():
         or_index = v.find(" or")
         # 如果找到了" or"，就返回其前面的内容；否则，返回整个字符串
         if or_index != -1:
-            result[k]=v[:or_index]
-
-
-
+            result[k] = v[:or_index]

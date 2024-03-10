@@ -3,7 +3,6 @@ def scrap_punctuations(timestamp: str) -> str:
     return cleaned_string
 
 
-
 def events_to_ics(events: list, output_file_name: str):
     print("正在执行 events_to_ics 函数")
     """
@@ -14,12 +13,12 @@ def events_to_ics(events: list, output_file_name: str):
     - output_file_name: 输出的 .ics 文件名。
     """
     ics_content = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Your Company//Your Product//EN\nCALSCALE:GREGORIAN\n"
-    i=0
+    i = 0
 
     for e in events:
-        start_timestamp=scrap_punctuations(e["start"])
-        end_timestamp=scrap_punctuations(e["end"])
-        i+=1
+        start_timestamp = scrap_punctuations(e["start"])
+        end_timestamp = scrap_punctuations(e["end"])
+        i += 1
         print(i)
 
         ics_content += f"""BEGIN:VEVENT
@@ -27,13 +26,12 @@ SUMMARY:{e["summary"]}
 DTSTART:{start_timestamp}
 DTEND:{end_timestamp}
 """
-        if ("location" in e) and e["location"] !="":
-            ics_content += "LOCATION:"+e["location"]+"\n"
-        if ("description" in e) and e["description"] !="":
-            ics_content += "DESCRIPTION:"+e["description"]+"\n"
+        if ("location" in e) and e["location"] != "":
+            ics_content += "LOCATION:" + e["location"] + "\n"
+        if ("description" in e) and e["description"] != "":
+            ics_content += "DESCRIPTION:" + e["description"] + "\n"
 
         ics_content += "END:VEVENT\n"
-
 
     ics_content += "END:VCALENDAR"
     # print(ics_content)
@@ -63,4 +61,3 @@ events_list = [{
 }]
 
 # 调用函数，将事件列表转换为 .ics 文件
-
