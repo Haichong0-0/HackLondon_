@@ -1,4 +1,3 @@
-# config.py
 def read_api_key(file_path):
     print("execcuting `read_api_key` function")
     with open(file_path, 'r') as file:

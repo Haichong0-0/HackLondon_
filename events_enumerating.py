@@ -1,6 +1,4 @@
 import openai
-import json
-
 import config
 
 GPT3="gpt-3.5-turbo"

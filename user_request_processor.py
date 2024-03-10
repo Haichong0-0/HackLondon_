@@ -1,4 +1,3 @@
-import sys
 import events_enumerating
 import events_timing
 import events_formatting
