@@ -136,11 +136,11 @@ Always ensure there are no any time conflicts for any two arbitrary events
 
 
 def timing(generic_plan: str) -> json:
-    print("正在执行 timing 函数")
+    print("executing `timing` function")
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model=GPT3,
+        model=GPT4,
         response_format={"type": "json_object"},
         temperature=0.0,
         max_tokens=2000,

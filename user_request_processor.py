@@ -30,7 +30,6 @@ def processing_user_request(user_input: str):
     for e in specific_events_list:
         a=events_formatting.format_timed_event(e)
         formatted_events_set.add(a)
-        print(type(a))
 
     json_to_ical.events_to_ics(formatted_events_set, "my_events.ics")
 

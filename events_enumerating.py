@@ -82,11 +82,11 @@ output for example 3:
 
 
 def enumerate_events(natural_language_plan: str) -> str:
-    print("正在执行 enumerate_events 函数")
+    print("executing `enumerate_events` function")
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model=GPT3,
+        model=GPT4,
         response_format={"type": "json_object"},
         temperature=0.9,
         max_tokens=500,

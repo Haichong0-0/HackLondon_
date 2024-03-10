@@ -52,12 +52,12 @@ or{
 
 
 def format_timed_event(event: str) -> str:
-    print("正在执行 format_timed_event 函数")
+    print("executing `format_timed_event` function")
 
     openai.api_key = config.API_KEY
 
     response = openai.chat.completions.create(
-        model=GPT3,
+        model=GPT4,
         response_format={"type": "json_object"},
         temperature=0.0,
         max_tokens=500,

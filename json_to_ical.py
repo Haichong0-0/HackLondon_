@@ -8,7 +8,7 @@ def scrap_punctuations(timestamp: str) -> str:
 
 
 def events_to_ics(events, output_file_name: str):
-    print("正在执行 events_to_ics 函数")
+    print("executing `events_to_ics` function")
 
     """
     将包含多个事件的列表转换为单一的含有多个事件的 iCalendar (.ics) 文件。
@@ -45,6 +45,8 @@ DTEND:{end_timestamp}
     # print(ics_content)
     with open(output_file_name, "w") as file:
         file.write(ics_content)
+
+    print("Done")
 
 
 # 示例事件列表
