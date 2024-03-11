@@ -6,6 +6,21 @@ The genesis of TimeWise stems from the common struggle of effectively managing p
 ## What it does
 TimeWise leverages Generative AI to revolutionize how users manage their daily schedules. By accepting natural language inputs, regardless of their length or complexity, TimeWise enables users to effortlessly create a comprehensive array of events tailored to their everyday lives. This intuitive interface allows for the seamless generation of events, which can then be conveniently integrated into users' personal or professional calendars with a simple tap.
 
+  <figure style="display:inline-block; margin:10px;">
+    <img src="./demo_pics/Compatible%20to%20your%20device's%20system%20calendar.jpg" width="500">
+    <figcaption>Compatible with your device's system calendar</figcaption>
+  </figure>
+
+  <figure style="display:inline-block; margin:10px;">
+    <img src="./demo_pics/Web%20GUI.png" width="500">
+    <figcaption>Web GUI</figcaption>
+  </figure>
+
+  <figure style="display:inline-block; margin:10px;">
+    <img src="./demo_pics/System%20calendar%20UI.jpg" width="500">
+    <figcaption>System Calendar UI</figcaption>
+  </figure>
+
 ## How we built it
 Our journey in developing TimeWise was founded on collaboration and dedication, with our team members often working through the night to bring our vision to life. Utilizing a robust toolkit comprising Python, OpenAI's API, web development technologies (HTML, JavaScript, JSON, PHP), and the iCalendar format, we crafted a solution that marries the power of AI with user-friendly design.
 
